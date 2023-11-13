@@ -7,7 +7,7 @@ class ecuacionLineal {
   private:
       double a, b;
   public:
-      ecuacionLineal(double a, double b) : a(a), b(b) {}
+      ecuacionLineal(double a, double b) : 
       void solucion() const {
           if (a == 0) {
               if (b == 0) {
@@ -26,7 +26,7 @@ class ecuacionLineal {
 
 class ecuacionCuadratica {
   public:
-      ecuacionCuadratica(double a, double b, double c) : a(a), b(b), c(c) {}
+      ecuacionCuadratica(double a, double b, double c) : 
   };
 
 int main() {
