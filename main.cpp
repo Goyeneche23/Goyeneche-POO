@@ -14,7 +14,53 @@ int main() {
 
     switch (operacion) {
         case 1: {
-            // ... (mismo código que antes)
+            int opcionEcuacion;
+            double a, b, c, d;
+
+            cout << "Seleccione el tipo de ecuación a resolver:" << endl;
+            cout << "1. Ecuación Lineal" << endl;
+            cout << "2. Ecuación Cuadrática" << endl;
+            cout << "3. Ecuación Cuadrática" << endl;
+            cout << "Ingrese el número correspondiente a la opción: ";
+            cin >> opcionEcuacion;
+
+            if (opcionEcuacion == 1) {
+                cout << "Ingrese el coeficiente 'a' de la ecuación lineal: ";
+                cin >> a;
+                cout << "Ingrese el coeficiente 'b' de la ecuación lineal: ";
+                cin >> b;
+
+                EcuacionLineal ecuacionLineal(a, b);
+                ecuacionLineal.reducirEcuacion();
+            } 
+            else if (opcionEcuacion == 2) {
+                cout << "Ingrese el coeficiente 'a' de la ecuación cuadrática: ";
+                cin >> a;
+                cout << "Ingrese el coeficiente 'b' de la ecuación cuadrática: ";
+                cin >> b;
+                cout << "Ingrese el coeficiente 'c' de la ecuación cuadrática: ";
+                cin >> c;
+
+                EcuacionCuadratica ecuacionCuadratica(a, b, c);
+                ecuacionCuadratica.formulaCuadratica();
+            } 
+            else if (opcionEcuacion == 3) { 
+                cout << "Ingrese el coeficiente 'a' de la ecuación cubica: ";
+                cin >> a;
+                cout << "Ingrese el coeficiente 'b' de la ecuación cubica: ";
+                cin >> b;
+                cout << "Ingrese el coeficiente 'c' de la ecuación cubica: ";
+                cin >> c;
+                cout << "Ingrese el coeficiente 'd' de la ecuación cubica: ";
+                cin >> d;
+
+                //EcuacionCubica ecuacionCubica(a, b, c, d);
+                //ecuacionCubica reducirEcuacion();
+                //ecuacionCubica.metodoCardano();
+            }
+            else {
+                cout << "Opción no válida." << endl;
+            }
             break;
         }
         case 2: {
