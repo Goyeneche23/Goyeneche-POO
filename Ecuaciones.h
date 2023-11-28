@@ -1,11 +1,14 @@
 #include <iostream>
 #include <cmath>
+#include "Operacion.h"
 using namespace std;
 
-class EcuacionLineal {
+// Clase hija EcuacionLineal
+class EcuacionLineal : public OperacionMatematica {
 public:
-    EcuacionLineal(double a, double b) : a(a), b(b) {}
-    void reducirEcuacion() const {
+    EcuacionLineal(double a, double b) : OperacionMatematica(a, b) {}
+
+    void resolverEcuacion() const {
         if (a == 0) {
             if (b == 0) {
                 cout << "Infinitas soluciones." << endl;
@@ -17,20 +20,19 @@ public:
             cout << "Solución: x = " << solucion << endl;
         }
     }
-
-private:
-    double a, b;
 };
 
-class EcuacionCuadratica {
+// Clase hija EcuacionCuadratica
+class EcuacionCuadratica : public OperacionMatematica {
 public:
-    EcuacionCuadratica(double a, double b, double c) : a(a), b(b), c(c) {}
-    void formulaCuadratica() const {
-        if ( (b * b - 4 * a * c ) > 0) {
-            double solucion1 = (-b + sqrt( b * b - 4 * a * c)) / (2 * a);
-            double solucion2 = (-b - sqrt( b * b - 4 * a * c)) / (2 * a);
+    EcuacionCuadratica(double a, double b, double c) : OperacionMatematica(a, b), c(c) {}
+
+    void resolverEcuacion() const {
+        if ((b * b - 4 * a * c) > 0) {
+            double solucion1 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+            double solucion2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
             cout << "x1 = " << solucion1 << endl << "x2 = " << solucion2 << endl;
-        } else if ( (b * b - 4 * a * c) == 0) {
+        } else if ((b * b - 4 * a * c) == 0) {
             double solucion = -b / (2 * a);
             cout << "x = " << solucion << endl;
         } else {
@@ -39,7 +41,7 @@ public:
     }
 
 private:
-    double a, b, c;
+    double c;
 };
 /*
 class EcuacionCubica {
