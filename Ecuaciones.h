@@ -30,12 +30,11 @@ public:
     EcuacionCuadratica(double a, double b, double c) : OperacionMatematica(a, b), c(c) {}
 
     void realizarOperacion() const override {
-        double discriminante = b * b - 4 * a * c;
-        if (discriminante > 0) {
-            double solucion1 = (-b + sqrt(discriminante)) / (2 * a);
-            double solucion2 = (-b - sqrt(discriminante)) / (2 * a);
+        if (b * b - 4 * a * c > 0) {
+            double solucion1 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+            double solucion2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
             cout << "x1 = " << solucion1 << endl << "x2 = " << solucion2 << endl;
-        } else if (discriminante == 0) {
+        } else if (b * b - 4 * a * c == 0) {
             double solucion = -b / (2 * a);
             cout << "x = " << solucion << endl;
         } else {
