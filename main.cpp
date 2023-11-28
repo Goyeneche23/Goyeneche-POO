@@ -13,51 +13,56 @@ int main() {
     cin >> operacion;
 
     switch (operacion) {
-        case 1: {
-            int opcionEcuacion;
-            double a, b, c, d;
+          case 1: {
+              int opcionEcuacion;
+              double a, b, c, d;
 
-            cout << "Seleccione el tipo de ecuación a resolver:" << endl;
-            cout << "1. Ecuación Lineal" << endl;
-            cout << "2. Ecuación Cuadrática" << endl;
-            cout << "Ingrese el número correspondiente a la opción: ";
-            cin >> opcionEcuacion;
+              cout << "Seleccione el tipo de ecuación a resolver:" << endl;
+              cout << "1. Ecuación Lineal" << endl;
+              cout << "2. Ecuación Cuadrática" << endl;
+              cout << "3. Ecuación Cubica" << endl;
+              cout << "Ingrese el número correspondiente a la opción: ";
+              cin >> opcionEcuacion;
 
-            cout << "Ingrese el coeficiente 'a': ";
-            cin >> a;
-            cout << "Ingrese el coeficiente 'b': ";
-            cin >> b;
+              if (opcionEcuacion == 1) {
+                  cout << "Ingrese el coeficiente 'a' de la ecuación lineal: ";
+                  cin >> a;
+                  cout << "Ingrese el coeficiente 'b' de la ecuación lineal: ";
+                  cin >> b;
 
-            OperacionMatematica* ecuacionObj = nullptr;
+                  EcuacionLineal ecuacionLineal(a, b);
+                  ecuacionLineal.realizarOperacion();
+              } 
+              else if (opcionEcuacion == 2) {
+                  cout << "Ingrese el coeficiente 'a' de la ecuación cuadrática: ";
+                  cin >> a;
+                  cout << "Ingrese el coeficiente 'b' de la ecuación cuadrática: ";
+                  cin >> b;
+                  cout << "Ingrese el coeficiente 'c' de la ecuación cuadrática: ";
+                  cin >> c;
 
-            switch (opcionEcuacion) {
-                case 1:
-                    ecuacionObj = new EcuacionLineal(a, b);
-                    break;
-                case 2:
-                    cout << "Ingrese el coeficiente 'c': ";
-                    cin >> c;
-                    ecuacionObj = new EcuacionCuadratica(a, b, c);
-                    break;
-                case 3:
-                    cout << "Ingrese el coeficiente 'c': ";
-                    cin >> c;
-                    cout << "Ingrese el coeficiente 'd': ";
-                    cin >> d;
-                    // ecuacionObj = new EcuacionCubica(a, b, c, d);
-                    // ecuacionObj->reducirEcuacion();
-                    // ecuacionObj->metodoCardano();
-                    break;
-                default:
-                    cout << "Opción no válida." << endl;
-                    break;
-            }
+                  EcuacionCuadratica ecuacionCuadratica(a, b, c);
+                  ecuacionCuadratica.realizarOperacion();
+              } 
+              else if (opcionEcuacion == 3) { 
+                  cout << "Ingrese el coeficiente 'a' de la ecuación cubica: ";
+                  cin >> a;
+                  cout << "Ingrese el coeficiente 'b' de la ecuación cubica: ";
+                  cin >> b;
+                  cout << "Ingrese el coeficiente 'c' de la ecuación cubica: ";
+                  cin >> c;
+                  cout << "Ingrese el coeficiente 'd' de la ecuación cubica: ";
+                  cin >> d;
 
-            if (ecuacionObj != nullptr) {
-                ecuacionObj->realizarOperacion();
-                delete ecuacionObj;
-            }
-            break;
+                  // EcuacionCubica ecuacionCubica(a, b, c, d);
+                  // ecuacionCubica.reducirEcuacion();
+                  // ecuacionCubica.metodoCardano();
+              }
+              else {
+                  cout << "Opción no válida." << endl;
+              }
+              break;
+
         }
         case 2: {
             double a, b;
