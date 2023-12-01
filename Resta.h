@@ -6,7 +6,7 @@
 #include "OperacionMatematica.h"
 using namespace std;
 
-class Resta : public OperacionMatematica {
+class Resta : public OperacionMatematica { //Classe Hija
 public:
     Resta(double a, double b) : OperacionMatematica(a, b) {}
 
