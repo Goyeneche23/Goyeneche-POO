@@ -13,8 +13,7 @@ protected:
 
 public:
     OperacionMatematica(double a, double b) : a(a), b(b), resultado(0) {}
-    virtual ~OperacionMatematica() {}
-
+    virtual ~OperacionMatematica() {} //Classe Virtual
     double getResultado() const {
         return resultado;
     }
